@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <InputContainer></InputContainer>
+    <ProductsContainer></ProductsContainer>
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import InputContainer from './components/InputContainer'
+import ProductsContainer from "@/components/ProductsContainer";
 export default {
   name: 'App',
   components: {
-    InputContainer
+    InputContainer,
+    ProductsContainer
   },
   data() {
     return {
@@ -41,6 +44,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(240, 240, 240, 0.8);
 }
 </style>
