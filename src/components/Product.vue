@@ -1,5 +1,5 @@
 <template>
-  <div class="ProductContainer">
+  <div class="ProductInfoContainer">
     <div v-if="activeProduct" class="delBtnContainer">
       <button class="delBtn"></button>
     </div>
@@ -41,8 +41,9 @@ export default {
     line-height: 25px;
   }
 
-  .ProductContainer{
-    position: relative;
+  .ProductInfoContainer{
+    margin: 0px 0px 16px 16px;
+    box-sizing: border-box;
     width: 332px;
     height: 423px;
     background: #FFFEFB;
@@ -56,6 +57,7 @@ export default {
     box-sizing: border-box;
     width: 100%;
     height: 200px;
+    border-radius: 4px 4px 0px 0px;
     background: url("img.png") no-repeat center/contain;
   }
 

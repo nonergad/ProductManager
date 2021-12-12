@@ -1,5 +1,10 @@
 <template>
-  <div>
+  <div class="ProductContainer">
+    <Product></Product>
+    <Product></Product>
+    <Product></Product>
+    <Product></Product>
+    <Product></Product>
     <Product></Product>
   </div>
 </template>
@@ -18,5 +23,10 @@ export default {
 </script>
 
 <style scoped>
-
+  .ProductContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 1028px;
+  }
 </style>
