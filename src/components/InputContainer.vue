@@ -8,7 +8,7 @@
     <ItemInput :placeholder-text="imagePlaceholder"></ItemInput>
     <RequiredText :flag="true" :text="priceText"></RequiredText>
     <ItemInput :placeholder-text="pricePlaceholder"></ItemInput>
-    <AddButton></AddButton>
+    <AddButton :isActive="isActive"></AddButton>
   </div>
 </template>
 
@@ -30,6 +30,7 @@ export default {
       descriptionText:"Описание товара",
       imageText:"Ссылка на изображение товара",
       priceText: "Цена товара",
+      isActive: true
     }
   }
 

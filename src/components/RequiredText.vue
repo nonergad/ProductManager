@@ -31,7 +31,7 @@ export default {
   .Text{
     margin: 0px;
     font-family: Source Sans Pro;
-    font-weight: 500px;
+    font-weight: 400px;
     font-size: 10px;
     line-height: 13px;
     letter-spacing: -0.02em;

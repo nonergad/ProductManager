@@ -10,6 +10,9 @@ export default {
   name: "ProductsContainer",
   components:{
     Product
+  },
+  props:{
+    Product:[]
   }
 }
 </script>
