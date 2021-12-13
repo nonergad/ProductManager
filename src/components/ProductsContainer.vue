@@ -1,11 +1,6 @@
 <template>
   <div class="ProductContainer">
-    <Product class="productItem"></Product>
-    <Product class="productItem"></Product>
-    <Product class="productItem"></Product>
-    <Product class="productItem"></Product>
-    <Product class="productItem"></Product>
-    <Product class="productItem"></Product>
+    <Product class="productItem" :key="index" v-for="(item, index) in allProducts" :product="item"></Product>
   </div>
 </template>
 
@@ -17,7 +12,7 @@ export default {
     Product
   },
   props:{
-    Product:[]
+    allProducts: Array
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="TextContainer">
-    <p class="Text">{{text}}</p>
+    <label class="Text">{{text}}</label>
     <div v-if="flag" class="Redpoint"></div>
   </div>
 </template>

@@ -1,16 +1,16 @@
 <template>
   <div class="containerWrapper">
-    <div class="Container">
+    <form class="Container" >
       <RequiredText :flag="true" :text="productText"></RequiredText>
-      <ItemInput :placeholder-text="namePlaceholder" v-on:input="(event) => {console.log(event)}"/>
+      <input class="inputs" :class="!productInfo.productName && 'inpRed'" :placeholder="namePlaceholder" required v-model="productInfo.productName"/>
       <RequiredText :flag="false" :text="descriptionText"></RequiredText>
-      <DescriptionInput :placeholder-text="descriptionPlaceholder"></DescriptionInput>
+      <textarea class="Description" :placeholder="descriptionPlaceholder" v-model="productInfo.description"/>
       <RequiredText :flag="true" :text="imageText"></RequiredText>
-      <ItemInput :placeholder-text="imagePlaceholder"></ItemInput>
+      <input class="inputs" :class="!productInfo.imgUrl && 'inpRed'" :placeholder="imagePlaceholder" required v-model="productInfo.imgUrl"/>
       <RequiredText :flag="true" :text="priceText"></RequiredText>
-      <ItemInput :placeholder-text="pricePlaceholder"></ItemInput>
-      <AddButton :isActive="isActive"></AddButton>
-    </div>
+      <input class="inputs" :class="!productInfo.price && 'inpRed'" type="number" :placeholder="pricePlaceholder" required v-model="productInfo.price"/>
+      <AddButton :class="productInfo.productName && productInfo.imgUrl && productInfo.price && 'btnGreen'" :func="deploy"></AddButton>
+    </form>
   </div>
 
 </template>
@@ -18,11 +18,9 @@
 <script>
 import RequiredText from "@/components/RequiredText";
 import AddButton from "@/components/AddButton";
-import DescriptionInput from "@/components/DescriptionInput";
-import ItemInput from "@/components/ItemInput";
 export default {
   name: "InputContainer",
-  components: {ItemInput, DescriptionInput, AddButton, RequiredText},
+  components: {AddButton, RequiredText},
   data() {
     return {
       namePlaceholder: "Введите наименование товара",
@@ -38,7 +36,15 @@ export default {
         productName: '',
         description:'',
         imgUrl:'',
-        price:0
+        price:''
+      }
+    }
+  },
+  methods:{
+    deploy(event){
+      event.preventDefault()
+      if(this.productInfo.productName && this.productInfo.imgUrl && this.productInfo.price){
+        this.$emit('product', {product: this.productInfo})
       }
     }
   }
@@ -50,7 +56,7 @@ export default {
   .containerWrapper{
     position: relative;
     width: 332px;
-    height: 440px;
+    height: 1000px;
   }
 
   .Container{
@@ -62,5 +68,44 @@ export default {
     background: #FFFEFB;
     box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02);
     border-radius: 4px;
+  }
+
+  .inpRed{
+    border:2px solid red;
+  }
+
+  .btnGreen{
+    color: #FFFFFF;
+    background: #7BAE73;
+  }
+
+  input{
+    border: 0px none;
+  }
+  .inputs{
+    width: 100%;
+    height: 36px;
+    box-sizing: border-box;
+    background: #FFFEFB;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    font-family: Source Sans Pro;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .Description{
+    width: 100%;
+    height: 108px;
+    box-sizing: border-box;
+    background: #FFFEFB;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    resize: none;
   }
 </style>
