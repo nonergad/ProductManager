@@ -3,8 +3,8 @@
     <div>
       <Header/>
       <div class="main">
-          <InputContainer/>
-        <ProductsContainer/>
+        <InputContainer @product="(event) => pushProduct(event)"/>
+        <ProductsContainer :allProducts="allProducts"/>
       </div>
     </div>
   </div>
@@ -28,16 +28,20 @@ export default {
     }
   },
   methods:{
-    clickHandler(){
-      console.log(1)
-      this.data++
+    pushProduct(data){
+      this.allProducts.unshift(JSON.parse(JSON.stringify(data.product)))
+    }
+  },
+  computed: {
+    now: function () {
+      return this.allProducts
     }
   },
   created(){
 
   },
   mounted(){
-
+   console.log(this.$data.allProducts)
   },
   updated() {
   },

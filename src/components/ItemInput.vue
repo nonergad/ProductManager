@@ -1,5 +1,5 @@
 <template>
-  <input class="inputs" :placeholder="placeholderText" @input="(event) => this.$emit('input', event.target.value)">
+  <input class="inputs" :placeholder="placeholderText" required @input="(event) => this.$emit('input', event.target.value)">
 </template>
 
 <script>

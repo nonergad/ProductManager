@@ -1,12 +1,13 @@
 <template>
-  <button v-bind:class="{isActive:ActiveBtn}" class="AddBtn">Добавить</button>
+  <button v-bind:class="{isActive:ActiveBtn}" class="AddBtn" @click="(event) => func(event)" >Добавить</button>
 </template>
 
 <script>
 export default {
   name: "AddButton",
   props:{
-    isActive: Boolean
+    isActive: Boolean,
+    func: Function
   }
 }
 </script>
@@ -18,15 +19,12 @@ export default {
   }
 
   .AddBtn{
+    box-sizing: border-box;
     margin-top: 24px;
     width: 100%;
     height: 36px;
     background: #EEEEEE;
     border-radius: 10px;
-    border-color: none;
   }
 
-  .ActiveBtn{
-    background: #7BAE73;
-  }
 </style>
