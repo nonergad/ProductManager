@@ -1,5 +1,5 @@
 <template>
-  <input class="Description" :placeholder="placeholderText">
+  <textarea class="Description"  :placeholder="placeholderText"/>
 </template>
 
 <script>
@@ -23,9 +23,10 @@ export default {
     background: #FFFEFB;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: normal;
     font-size: 12px;
     line-height: 15px;
-    color: #B4B4B4;
+    resize: none;
   }
 </style>

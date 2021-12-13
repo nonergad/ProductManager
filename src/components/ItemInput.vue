@@ -1,5 +1,5 @@
 <template>
-  <input class="inputs" :placeholder="placeholderText">
+  <input class="inputs" :placeholder="placeholderText" @input="(event) => this.$emit('input', event.target.value)">
 </template>
 
 <script>
@@ -7,6 +7,16 @@ export default {
   name: "ItemInput",
   props:{
     placeholderText: String
+  },
+  data() {
+    return {
+      text: ''
+    }
+  },
+  methods:{
+    saveInfo() {
+
+    }
   }
 }
 
@@ -28,6 +38,5 @@ input{
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
-  color: #B4B4B4;
 }
 </style>

@@ -1,11 +1,11 @@
 <template>
   <div class="ProductContainer">
-    <Product></Product>
-    <Product></Product>
-    <Product></Product>
-    <Product></Product>
-    <Product></Product>
-    <Product></Product>
+    <Product class="productItem"></Product>
+    <Product class="productItem"></Product>
+    <Product class="productItem"></Product>
+    <Product class="productItem"></Product>
+    <Product class="productItem"></Product>
+    <Product class="productItem"></Product>
   </div>
 </template>
 
@@ -28,5 +28,10 @@ export default {
     flex-direction: row;
     flex-wrap: wrap;
     width: 1028px;
+    margin-left: 16px;
+  }
+
+  .productItem:nth-child(3n+1){
+    margin: 0;
   }
 </style>

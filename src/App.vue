@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <div>
-      <Header></Header>
+      <Header/>
       <div class="main">
-        <InputContainer></InputContainer>
-        <ProductsContainer></ProductsContainer>
+          <InputContainer/>
+        <ProductsContainer/>
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@ export default {
   },
   data() {
     return {
-      data: 0
+      allProducts:[],
     }
   },
   methods:{
@@ -52,7 +52,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  padding-top: 50px;
   display: flex;
   justify-content: space-between;
   background: rgba(240, 240, 240, 0.8);

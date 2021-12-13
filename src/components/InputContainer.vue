@@ -1,15 +1,18 @@
 <template>
-  <div class="Container">
-    <RequiredText :flag="true" :text="productText"></RequiredText>
-    <ItemInput :placeholder-text="namePlaceholder"></ItemInput>
-    <RequiredText :flag="false" :text="descriptionText"></RequiredText>
-    <DescriptionInput :placeholder-text="descriptionPlaceholder"></DescriptionInput>
-    <RequiredText :flag="true" :text="imageText"></RequiredText>
-    <ItemInput :placeholder-text="imagePlaceholder"></ItemInput>
-    <RequiredText :flag="true" :text="priceText"></RequiredText>
-    <ItemInput :placeholder-text="pricePlaceholder"></ItemInput>
-    <AddButton :isActive="isActive"></AddButton>
+  <div class="containerWrapper">
+    <div class="Container">
+      <RequiredText :flag="true" :text="productText"></RequiredText>
+      <ItemInput :placeholder-text="namePlaceholder" v-on:input="(event) => {console.log(event)}"/>
+      <RequiredText :flag="false" :text="descriptionText"></RequiredText>
+      <DescriptionInput :placeholder-text="descriptionPlaceholder"></DescriptionInput>
+      <RequiredText :flag="true" :text="imageText"></RequiredText>
+      <ItemInput :placeholder-text="imagePlaceholder"></ItemInput>
+      <RequiredText :flag="true" :text="priceText"></RequiredText>
+      <ItemInput :placeholder-text="pricePlaceholder"></ItemInput>
+      <AddButton :isActive="isActive"></AddButton>
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -30,7 +33,13 @@ export default {
       descriptionText:"Описание товара",
       imageText:"Ссылка на изображение товара",
       priceText: "Цена товара",
-      isActive: true
+      isActive: true,
+      productInfo:{
+        productName: '',
+        description:'',
+        imgUrl:'',
+        price:0
+      }
     }
   }
 
@@ -38,7 +47,14 @@ export default {
 </script>
 
 <style scoped>
+  .containerWrapper{
+    position: relative;
+    width: 332px;
+    height: 440px;
+  }
+
   .Container{
+    position: fixed;
     width: 332px;
     height: 440px;
     padding: 24px;
